@@ -25,8 +25,15 @@ int main( void ){
    auto display     = hwlib::st7789_spi_dc_cs_rst( spi, dc, cs, rst );   
    
    for(;;){
+      auto t1 = hwlib::now_us();
       display.clear( hwlib::red );
+      auto t2 = hwlib::now_us();
+      auto timeItTook = t2-t1;
+      hwlib::cout<<timeItTook << " Microseconds it took" << hwlib::endl;
       display.flush();
+      auto t3 = hwlib::now_us();
+      timeItTook = t3-t2;
+      hwlib::cout<<timeItTook << " Microseconds it took" << hwlib::endl;
 
       display.clear( hwlib::green );
       display.flush();
