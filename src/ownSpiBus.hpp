@@ -20,16 +20,17 @@ private:
    
    void write_and_read( 
       const size_t n, 
-      const uint8_t data_out[], 
-      uint8_t data_in[] 
+      const uint8_t data_out[],
+      uint8_t data_in[]          //deze had ook weggekund maar dat vind hwlib spibus.hpp niet leuk.
    ) override {
-
-      for( uint_fast8_t i = 0; i < n; ++i ){
+      // for( uint_fast8_t i = 0; i < n; ++i ){
           
-         uint_fast8_t d = 
-            ( data_out == nullptr )
-            ? 0 
-            : *data_out++;
+         uint_fast8_t d = *data_out++;
+
+         // uint_fast8_t d = 
+         //    ( data_out == nullptr )
+         //    ? 0 
+         //    : *data_out++;
              
          for( uint_fast8_t j = 0; j < 8; ++j ){
          // wait_half_period();
@@ -38,16 +39,16 @@ private:
             sclk.write( 1 );
             // wait_half_period();
             d = d << 1;
-            if( miso.read() ){
-               d |= 0x01;
-            }
+            // if( miso.read() ){
+            //    d |= 0x01;
+            // }
             sclk.write( 0 );              
          }
           
-         if( data_in != nullptr ){
-            *data_in++ = d;
-         }
-      }      
+         // if( data_in != nullptr ){
+         //    *data_in++ = d;
+         // }
+      // }      
       // wait_half_period();
    }      
    
