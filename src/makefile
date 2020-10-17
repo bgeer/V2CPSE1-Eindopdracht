@@ -14,7 +14,7 @@
 SOURCES :=
 
 # header files in this project
-HEADERS :=
+HEADERS := ownSpiBus.hpp
 
 # other places to look for files for this project
 SEARCH  := 
