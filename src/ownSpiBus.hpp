@@ -32,11 +32,11 @@ private:
             : *data_out++;
              
          for( uint_fast8_t j = 0; j < 8; ++j ){
-         wait_half_period();
+         // wait_half_period();
             mosi.write( ( d & 0x80 ) != 0 );
-            wait_half_period();
+            // wait_half_period();
             sclk.write( 1 );
-            wait_half_period();
+            // wait_half_period();
             d = d << 1;
             if( miso.read() ){
                d |= 0x01;
@@ -48,7 +48,7 @@ private:
             *data_in++ = d;
          }
       }      
-      wait_half_period();
+      // wait_half_period();
    }      
    
 public:
