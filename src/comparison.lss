@@ -1,0 +1,107 @@
+Dit is de nieuwe functie van write_and_read
+
+00000704 <_ZN5hwlib9ownSpiBus14write_and_readEjPKhPh>:
+    push	{r4, r5, r6, lr}
+    mov	r4, r0
+    movs	r5, #8
+    ldrb	r6, [r2, #0]
+    ldr	r0, [r4, #16]
+    ubfx	r1, r6, #7, #1
+    ldr	r3, [r0, #0]
+    lsls	r6, r6, #1
+    ldr	r3, [r3, #0]
+    blx	r3
+    ldr	r0, [r4, #16]
+    ldr	r3, [r0, #0]
+    ldr	r3, [r3, #4]
+    blx	r3
+    ldr	r0, [r4, #8]
+    movs	r1, #1
+    ldr	r3, [r0, #0]
+    ldr	r3, [r3, #0]
+    blx	r3
+    ldr	r0, [r4, #8]
+    ldr	r3, [r0, #0]
+    ldr	r3, [r3, #4]
+    blx	r3
+    ldr	r0, [r4, #8]
+    movs	r1, #0
+    ldr	r3, [r0, #0]
+    ldr	r3, [r3, #0]
+    blx	r3
+    ldr	r0, [r4, #8]
+    ldr	r3, [r0, #0]
+    ldr	r3, [r3, #4]
+    blx	r3
+    subs	r5, #1
+    bne.n	70c <_ZN5hwlib9ownSpiBus14write_and_readEjPKhPh+0x8>
+    pop	{r4, r5, r6, pc}
+
+
+Dit is de originele functie van write_and_read
+
+00000704 <_ZN5hwlib9ownSpiBus14write_and_readEjPKhPh>:
+    stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    mov	r4, r0
+    mov	sl, r1
+    mov	r6, r2
+    mov	r7, r3
+    mov.w	r8, #0
+    add.w	fp, r0, #20
+    cmp	r8, sl
+    beq.n	796 <_ZN5hwlib9ownSpiBus14write_and_readEjPKhPh+0x92>
+    cmp	r6, #0
+    beq.n	792 <_ZN5hwlib9ownSpiBus14write_and_readEjPKhPh+0x8e>
+    ldrb	r5, [r6, #0]
+    adds	r6, #1
+    mov.w	r9, #8
+    movs	r0, #1
+    bl	43c <_ZN5hwlib7wait_usEi>
+    ldr	r0, [r4, #16]
+    ubfx	r1, r5, #7, #1
+    ldr	r3, [r0, #0]
+    lsls	r5, r5, #1
+    ldr	r3, [r3, #0]
+    blx	r3
+    ldr	r0, [r4, #16]
+    ldr	r3, [r0, #0]
+    ldr	r3, [r3, #4]
+    blx	r3
+    movs	r0, #1
+    bl	43c <_ZN5hwlib7wait_usEi>
+    ldr	r0, [r4, #8]
+    movs	r1, #1
+    ldr	r3, [r0, #0]
+    ldr	r3, [r3, #0]
+    blx	r3
+    ldr	r0, [r4, #8]
+    ldr	r3, [r0, #0]
+    ldr	r3, [r3, #4]
+    blx	r3
+    movs	r0, #1
+    bl	43c <_ZN5hwlib7wait_usEi>
+    mov	r0, fp
+    bl	4ac <_ZN5hwlib20pin_direct_from_in_t4readEv>
+    cbz	r0, 76e <_ZN5hwlib9ownSpiBus14write_and_readEjPKhPh+0x6a>
+    orr.w	r5, r5, #1
+    ldr	r0, [r4, #8]
+    movs	r1, #0
+    ldr	r3, [r0, #0]
+    ldr	r3, [r3, #0]
+    blx	r3
+    ldr	r0, [r4, #8]
+    ldr	r3, [r0, #0]
+    ldr	r3, [r3, #4]
+    blx	r3
+    subs.w	r9, r9, #1
+    bne.n	728 <_ZN5hwlib9ownSpiBus14write_and_readEjPKhPh+0x24>
+    cbz	r7, 78c <_ZN5hwlib9ownSpiBus14write_and_readEjPKhPh+0x88>
+    strb	r5, [r7, #0]
+    adds	r7, #1
+    add.w	r8, r8, #1
+    b.n	718 <_ZN5hwlib9ownSpiBus14write_and_readEjPKhPh+0x14>
+    mov	r5, r6
+    b.n	724 <_ZN5hwlib9ownSpiBus14write_and_readEjPKhPh+0x20>
+    movs	r0, #1
+    ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    b.w	43c <_ZN5hwlib7wait_usEi>
