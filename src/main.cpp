@@ -26,19 +26,11 @@ int main( void ){
    auto display     = hwlib::st7789_spi_dc_cs_rst( spi, dc, cs, rst );   
    
    for(;;){
-      //used 4 timings, 2 for each because maybe hwlib::cout takes also time.
-      auto t1 = hwlib::now_us();
-      display.clear( hwlib::red );
-      auto t2 = hwlib::now_us();
-      auto timeItTook = t2-t1;
-      hwlib::cout<<timeItTook << " Microseconds it took to clear" << hwlib::endl;
-      auto t3 = hwlib::now_us();
+      
+      display.clear( hwlib::blue );
       display.flush();
-      auto t4 = hwlib::now_us();
-      timeItTook = t4-t3;
-      hwlib::cout<<timeItTook << " Microseconds it took to flush" << hwlib::endl;
 
-      display.clear( hwlib::green );
+      display.clear( hwlib::red );
       display.flush();
 
       display.clear( hwlib::blue );
