@@ -2,6 +2,7 @@
 ///
 /// This class implements a bit-banged master interface to a SPI bus.
 #include "hwlib.hpp"
+#include "sam.h"
 
 namespace hwlib{
 
@@ -17,7 +18,18 @@ private:
    void HWLIB_INLINE wait_half_period(){
       wait_us( 1 );      
    }
-   
+
+
+   void directWriteMosi(bool v){
+      PIOC->PIO_OER = 0x01 << 26;
+      (v ? PIOC->PIO_SODR = 0x01 << 26: PIOC->PIO_CODR = 0x01 << 26);
+   }
+
+   void directWriteSclk(bool v){
+      PIOC->PIO_OER = 0x01 << 28;
+      (!v ? PIOC->PIO_SODR = 0x01 << 28: PIOC->PIO_CODR = 0x01 << 28); //inverted want dat moet, gebeurde ook in de main.
+   }
+
    void write_and_read( 
       const size_t n, 
       const uint8_t data_out[],
@@ -34,15 +46,18 @@ private:
              
          for( uint_fast8_t j = 0; j < 8; ++j ){
          // wait_half_period();
-            mosi.write( ( d & 0x80 ) != 0 );
+            // mosi.write( ( d & 0x80 ) != 0 );
+            directWriteMosi(( d & 0x80 ) != 0 );
             // wait_half_period();
-            sclk.write( 1 );
+            // sclk.write( 1 );
+            directWriteSclk(1);
             // wait_half_period();
             d = d << 1;
             // if( miso.read() ){
             //    d |= 0x01;
             // }
-            sclk.write( 0 );              
+            // sclk.write( 0 );
+            directWriteSclk(0);            
          }
           
          // if( data_in != nullptr ){
@@ -53,7 +68,6 @@ private:
    }      
    
 public:
-
    /// construct a bit-banged SPI bus from the sclk, miso and mosi pins
    ///
    /// This constructor creates a simple bit-banged SPI bus master

@@ -809,63 +809,63 @@ Disassembly of section .text:
      70a:	468a      	mov	sl, r1
      70c:	4616      	mov	r6, r2
      70e:	461f      	mov	r7, r3
-     710:	f04f 0800 	mov.w	r8, #0
-     714:	f100 0b14 	add.w	fp, r0, #20
-     718:	45d0      	cmp	r8, sl
-     71a:	d03c      	beq.n	796 <_ZN5hwlib9ownSpiBus14write_and_readEjPKhPh+0x92>
-     71c:	2e00      	cmp	r6, #0
-     71e:	d038      	beq.n	792 <_ZN5hwlib9ownSpiBus14write_and_readEjPKhPh+0x8e>
-     720:	7835      	ldrb	r5, [r6, #0]
-     722:	3601      	adds	r6, #1
-     724:	f04f 0908 	mov.w	r9, #8
-     728:	2001      	movs	r0, #1
-     72a:	f7ff fe87 	bl	43c <_ZN5hwlib7wait_usEi>
-     72e:	6920      	ldr	r0, [r4, #16]
-     730:	f3c5 11c0 	ubfx	r1, r5, #7, #1
-     734:	6803      	ldr	r3, [r0, #0]
-     736:	006d      	lsls	r5, r5, #1
-     738:	681b      	ldr	r3, [r3, #0]
-     73a:	4798      	blx	r3
-     73c:	6920      	ldr	r0, [r4, #16]
-     73e:	6803      	ldr	r3, [r0, #0]
-     740:	685b      	ldr	r3, [r3, #4]
-     742:	4798      	blx	r3
-     744:	2001      	movs	r0, #1
-     746:	f7ff fe79 	bl	43c <_ZN5hwlib7wait_usEi>
-     74a:	68a0      	ldr	r0, [r4, #8]
-     74c:	2101      	movs	r1, #1
-     74e:	6803      	ldr	r3, [r0, #0]
-     750:	681b      	ldr	r3, [r3, #0]
-     752:	4798      	blx	r3
-     754:	68a0      	ldr	r0, [r4, #8]
-     756:	6803      	ldr	r3, [r0, #0]
-     758:	685b      	ldr	r3, [r3, #4]
-     75a:	4798      	blx	r3
-     75c:	2001      	movs	r0, #1
-     75e:	f7ff fe6d 	bl	43c <_ZN5hwlib7wait_usEi>
-     762:	4658      	mov	r0, fp
-     764:	f7ff fea2 	bl	4ac <_ZN5hwlib20pin_direct_from_in_t4readEv>
-     768:	b108      	cbz	r0, 76e <_ZN5hwlib9ownSpiBus14write_and_readEjPKhPh+0x6a>
-     76a:	f045 0501 	orr.w	r5, r5, #1
-     76e:	68a0      	ldr	r0, [r4, #8]
-     770:	2100      	movs	r1, #0
-     772:	6803      	ldr	r3, [r0, #0]
-     774:	681b      	ldr	r3, [r3, #0]
-     776:	4798      	blx	r3
-     778:	68a0      	ldr	r0, [r4, #8]
-     77a:	6803      	ldr	r3, [r0, #0]
-     77c:	685b      	ldr	r3, [r3, #4]
-     77e:	4798      	blx	r3
-     780:	f1b9 0901 	subs.w	r9, r9, #1
-     784:	d1d0      	bne.n	728 <_ZN5hwlib9ownSpiBus14write_and_readEjPKhPh+0x24>
-     786:	b10f      	cbz	r7, 78c <_ZN5hwlib9ownSpiBus14write_and_readEjPKhPh+0x88>
-     788:	703d      	strb	r5, [r7, #0]
-     78a:	3701      	adds	r7, #1
-     78c:	f108 0801 	add.w	r8, r8, #1
-     790:	e7c2      	b.n	718 <_ZN5hwlib9ownSpiBus14write_and_readEjPKhPh+0x14>
-     792:	4635      	mov	r5, r6
-     794:	e7c6      	b.n	724 <_ZN5hwlib9ownSpiBus14write_and_readEjPKhPh+0x20>
-     796:	2001      	movs	r0, #1
+     710:	f04f 0800 	mov.w	r8, #0                   1
+     714:	f100 0b14 	add.w	fp, r0, #20              2
+     718:	45d0      	cmp	r8, sl                        3
+     71a:	d03c      	beq.n	796 <_ZN5hwlib9ownSpiBus14write_and_readEjPKhPh+0x92>       4 5 6
+     71c:	2e00      	cmp	r6, #0                                                           7
+     71e:	d038      	beq.n	792 <_ZN5hwlib9ownSpiBus14write_and_readEjPKhPh+0x8e>       8 9 10
+     720:	7835      	ldrb	r5, [r6, #0]                  11 12
+     722:	3601      	adds	r6, #1                        13
+     724:	f04f 0908 	mov.w	r9, #8                   14
+     728:	2001      	movs	r0, #1                        15
+     72a:	f7ff fe87 	bl	43c <_ZN5hwlib7wait_usEi>     16 17 18
+     72e:	6920      	ldr	r0, [r4, #16]                 19 20
+     730:	f3c5 11c0 	ubfx	r1, r5, #7, #1                21 22
+     734:	6803      	ldr	r3, [r0, #0]                  23 24
+     736:	006d      	lsls	r5, r5, #1                    25 26
+     738:	681b      	ldr	r3, [r3, #0]                  27 28
+     73a:	4798      	blx	r3                            29 30 31
+     73c:	6920      	ldr	r0, [r4, #16]                 32 33
+     73e:	6803      	ldr	r3, [r0, #0]                  34 35
+     740:	685b      	ldr	r3, [r3, #4]                  36 37
+     742:	4798      	blx	r3                            38 39
+     744:	2001      	movs	r0, #1                        40
+     746:	f7ff fe79 	bl	43c <_ZN5hwlib7wait_usEi>     41 42 43
+     74a:	68a0      	ldr	r0, [r4, #8]                  44 45
+     74c:	2101      	movs	r1, #1                        46
+     74e:	6803      	ldr	r3, [r0, #0]                  47 48
+     750:	681b      	ldr	r3, [r3, #0]                  49 50
+     752:	4798      	blx	r3                            51 52 53
+     754:	68a0      	ldr	r0, [r4, #8]                  54 55
+     756:	6803      	ldr	r3, [r0, #0]                  56 57
+     758:	685b      	ldr	r3, [r3, #4]                  58 59
+     75a:	4798      	blx	r3                            60 61 62
+     75c:	2001      	movs	r0, #1                        63
+     75e:	f7ff fe6d 	bl	43c <_ZN5hwlib7wait_usEi>     64 65 66
+     762:	4658      	mov	r0, fp                        67
+     764:	f7ff fea2 	bl	4ac <_ZN5hwlib20pin_direct_from_in_t4readEv> 68 69 70
+     768:	b108      	cbz	r0, 76e <_ZN5hwlib9ownSpiBus14write_and_readEjPKhPh+0x6a>   71 72 73
+     76a:	f045 0501 	orr.w	r5, r5, #1               74 75
+     76e:	68a0      	ldr	r0, [r4, #8]                  76 77
+     770:	2100      	movs	r1, #0                        78
+     772:	6803      	ldr	r3, [r0, #0]                  79 80
+     774:	681b      	ldr	r3, [r3, #0]                  81 82
+     776:	4798      	blx	r3                            83 84 85
+     778:	68a0      	ldr	r0, [r4, #8]                  86 87
+     77a:	6803      	ldr	r3, [r0, #0]                  88 89
+     77c:	685b      	ldr	r3, [r3, #4]                  90 91
+     77e:	4798      	blx	r3                            91 92 93
+     780:	f1b9 0901 	subs.w	r9, r9, #1               94
+     784:	d1d0      	bne.n	728 <_ZN5hwlib9ownSpiBus14write_and_readEjPKhPh+0x24> 95 96 97
+     786:	b10f      	cbz	r7, 78c <_ZN5hwlib9ownSpiBus14write_and_readEjPKhPh+0x88> 98 99 100
+     788:	703d      	strb	r5, [r7, #0]                  101 102
+     78a:	3701      	adds	r7, #1                        103
+     78c:	f108 0801 	add.w	r8, r8, #1               104
+     790:	e7c2      	b.n	718 <_ZN5hwlib9ownSpiBus14write_and_readEjPKhPh+0x14>  105 106 107
+     792:	4635      	mov	r5, r6                        108
+     794:	e7c6      	b.n	724 <_ZN5hwlib9ownSpiBus14write_and_readEjPKhPh+0x20>  109 110 111
+     796:	2001      	movs	r0, #1                        112
      798:	e8bd 4ff8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
      79c:	f7ff be4e 	b.w	43c <_ZN5hwlib7wait_usEi>
 
